@@ -37,15 +37,23 @@
             padding: 20px 0;
         }
 
-        /* Header */
+        /* Enhanced Header */
         header {
-            background-color: var(--navy);
-            padding: 20px 0;
+            background-color: rgba(10, 25, 47, 0.9);
+            padding: 15px 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+        }
+
+        .scrolled {
+            padding: 10px 0;
+            background-color: rgba(10, 25, 47, 0.95);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
         }
 
         .header-container {
@@ -58,6 +66,13 @@
             font-size: 24px;
             font-weight: 700;
             color: var(--white);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: var(--green);
         }
 
         .logo span {
@@ -71,6 +86,7 @@
 
         nav ul li {
             margin-left: 30px;
+            position: relative;
         }
 
         nav ul li a {
@@ -79,10 +95,21 @@
             font-weight: 500;
             transition: color 0.3s;
             font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        nav ul li a i {
+            font-size: 0.8em;
         }
 
         nav ul li a:hover {
             color: var(--green);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
         }
 
         .menu-toggle {
@@ -90,6 +117,11 @@
             cursor: pointer;
             font-size: 24px;
             color: var(--green);
+            transition: transform 0.3s;
+        }
+
+        .menu-toggle.active {
+            transform: rotate(90deg);
         }
 
         /* Hero Section */
@@ -330,6 +362,53 @@
             color: var(--green);
         }
 
+        /* Reports Section */
+        .reports {
+            padding: 100px 0;
+            background-color: var(--navy);
+        }
+
+        .reports-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .report-card {
+            background-color: var(--navy-light);
+            border-radius: 10px;
+            padding: 30px;
+            transition: transform 0.3s;
+        }
+
+        .report-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .report-card h3 {
+            color: var(--white);
+            margin-bottom: 15px;
+        }
+
+        .report-card p {
+            margin-bottom: 20px;
+        }
+
+        .report-download {
+            display: inline-block;
+            color: var(--green);
+            text-decoration: none;
+            border: 1px solid var(--green);
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .report-download:hover {
+            background-color: rgba(100, 255, 218, 0.1);
+        }
+
         /* Contact Section */
         .contact {
             padding: 100px 0;
@@ -360,12 +439,155 @@
             color: var(--green);
         }
 
-        /* Footer */
+        /* Enhanced Footer */
         footer {
             background-color: var(--navy-light);
-            padding: 20px 0;
-            text-align: center;
+            padding: 40px 0 20px;
+            border-top: 1px solid rgba(100, 255, 218, 0.1);
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-logo span {
+            color: var(--green);
+        }
+
+        .footer-about p {
+            margin-bottom: 15px;
             font-size: 0.9rem;
+        }
+
+        .footer-links h3, .footer-contact h3 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links h3::after, .footer-contact h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--green);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            color: var(--slate-light);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links ul li a i {
+            font-size: 0.8em;
+            color: var(--green);
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--green);
+        }
+
+        .footer-contact p {
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-contact p i {
+            color: var(--green);
+            width: 20px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(168, 178, 209, 0.1);
+            font-size: 0.8rem;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 5px;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .footer-social a {
+            color: var(--slate-light);
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .footer-social a:hover {
+            color: var(--green);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--green);
+            color: var(--navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--white);
+            transform: translateY(-3px);
         }
 
         /* Responsive Design */
@@ -410,6 +632,10 @@
             .hero h2 {
                 font-size: 1.5rem;
             }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 480px) {
@@ -428,24 +654,36 @@
                 margin-left: auto;
                 margin-right: auto;
             }
+
+            .back-to-top {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+                bottom: 20px;
+                right: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
+    <!-- Enhanced Header -->
+    <header id="main-header">
         <div class="container header-container">
-            <div class="logo">Aamir<span>Khan</span></div>
+            <div class="logo">
+                <i class="fas fa-code"></i>
+                <span>Aamir</span>Khan
+            </div>
             <nav>
                 <div class="menu-toggle">
                     <i class="fas fa-bars"></i>
                 </div>
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#education">Education</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
+                    <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                    <li><a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                    <li><a href="#reports"><i class="fas fa-file-alt"></i> Reports</a></li>
+                    <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -561,18 +799,17 @@
                 <div class="project-card">
                     
                     <div class="project-info">
-                        <h3>Smart Home IoT System</h3>
+                        <h3>MYSQL projects</h3>
                         <p>
-                            An IoT-based home automation system with voice control, energy monitoring, 
-                            and security features.
+                            Using MySQL, made teasy to learn and understand tables for beginners. Using the MySQL library as an interface to interact with the database.
                         </p>
                         <div class="project-tech">
+                            <span class="tech">MySQL</span>
                             <span class="tech">Python</span>
-                            <span class="tech">Raspberry Pi</span>
-                            <span class="tech">MQTT</span>
+                            <span class="tech">MySQL for python</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/AamirAhmadDon/smarthomeIOT"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/AamirAhmadDon/My-sql"><i class="fab fa-github"></i></a>
                             <a href="#"><i class="fas fa-external-link-alt"></i></a>
                         </div>
                     </div>
@@ -594,8 +831,34 @@
                         </div>
                     </div>
                 </div>
-                
-                    </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reports Section -->
+    <section class="reports" id="reports">
+        <div class="container">
+            <h2 class="section-title">My Reports</h2>
+            <div class="reports-grid">
+                <div class="report-card">
+                    <h3>Research on Quantum Computing</h3>
+                    <p>A comprehensive report on the fundamentals of quantum computing, its potential applications, and current challenges in the field.</p>
+                    <a href="Quantum_Computing.pdf" class="report-download" download>
+                        <i class="fas fa-download"></i> Download Report
+                    </a>
+                    <a href="Quantum_Computing.pdf" class="report-download" target="_blank" style="margin-left:10px;">
+                        <i class="fas fa-eye"></i> View Report
+                    </a>
+                </div>
+                <div class="report-card">
+                    <h3>Explainable AI</h3>
+                    <p>An analysis of Explainable AI and its legal and ethical impacts.</p>
+                    <a href="XAI_report.pdf" class="report-download" download>
+                        <i class="fas fa-download"></i> Download Report
+                    </a>
+                    <a href="XAI_report.pdf" class="report-download" target="_blank" style="margin-left:10px;">
+                        <i class="fas fa-eye"></i> View Report
+                    </a>
                 </div>
             </div>
         </div>
@@ -619,20 +882,63 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Enhanced Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Aamir Khan. All rights reserved.</p>
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <i class="fas fa-code"></i>
+                        <span>Aamir</span>Khan
+                    </div>
+                    <p>A passionate technology student specializing in Data Science, Machine Learning, and Quantum Computing.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> About</a></li>
+                        <li><a href="#education"><i class="fas fa-chevron-right"></i> Education</a></li>
+                        <li><a href="#projects"><i class="fas fa-chevron-right"></i> Projects</a></li>
+                        <li><a href="#reports"><i class="fas fa-chevron-right"></i> Reports</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Lalitpur, Nepal</p>
+                    <p><i class="fas fa-envelope"></i> aamir.ahmed.py@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +977 9841234567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Aamir Khan. All rights reserved.</p>
+                <p>Designed & Developed with <i class="fas fa-heart" style="color: #ff4d4d;"></i> by Aamir Khan</p>
+            </div>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
 
     <script>
         // Mobile menu toggle
         const menuToggle = document.querySelector('.menu-toggle');
         const navMenu = document.querySelector('nav ul');
+        const menuIcon = document.querySelector('.menu-toggle i');
 
         menuToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+            menuIcon.classList.toggle('fa-bars');
+            menuIcon.classList.toggle('fa-times');
         });
 
         // Close mobile menu when clicking on a link
@@ -640,6 +946,9 @@
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
+                menuToggle.classList.remove('active');
+                menuIcon.classList.add('fa-bars');
+                menuIcon.classList.remove('fa-times');
             });
         });
 
@@ -668,11 +977,33 @@
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
             if (window.scrollY > 50) {
-                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.2)';
+                header.classList.add('scrolled');
             } else {
-                header.style.boxShadow = 'none';
+                header.classList.remove('scrolled');
             }
         });
+
+        // Back to top button
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Add current year to footer
+        document.querySelector('.footer-bottom p:first-child').innerHTML = 
+            `&copy; ${new Date().getFullYear()} Aamir Khan. All rights reserved.`;
     </script>
 </body>
 </html>

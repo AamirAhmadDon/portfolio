@@ -7,30 +7,45 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            /* Default Theme (Navy/Green) */
+            /* Default Theme (Professional) */
             --navy: #0a192f;
             --navy-light: #172a45;
             --navy-lighter: #303f55;
-            --white: #e6f1ff;
-            --slate: #8892b0;
+            --white: #ffffff;
+            --slate: #888;
             --slate-light: #a8b2d1;
             --green: #64ffda;
-            --black: #020c1b;
+            --black: #333333;
             --accent: #64ffda;
             --theme-name: "Professional";
         }
 
-        /* Copper Theme Variables */
-        .copper-theme {
-            --navy: #121212;
+        /* Ferrari Red Theme Variables */
+ .ferrari-theme {
+            --navy: #000000;
             --navy-light: #1a1a1a;
-            --navy-lighter: #2a2a2a;
+            --navy-lighter: #2a2a2a2a;
             --white: #ffffff;
+            --slate: #ccc;
+            --slate-light: #dddddd;
+            --green: #ff2800;
+            --black: #000000;
+            --accent: #ff2800;
+            --theme-name: "Red";
+        }
+
+        /* Luxury Theme Variables */
+        .luxury-theme {
+            --navy: #121212;
+            --navy-light: #ffffff;
+            --navy-lighter: #222222;
+            --white: #ffffff;
+            --black: #333333;
             --slate: #bbbbbb;
             --slate-light: #dddddd;
             --green: #B87333;
-            --black: #000000;
-            --accent: #D4A017;
+            --black: #444444;
+            --accent: #D4A17;
             --theme-name: "Luxury";
         }
 
@@ -39,19 +54,19 @@
             position: fixed;
             bottom: 90px;
             left: 30px;
-            z-index: 999;
-            background: var(--accent);
-            color: var(--navy);
+            z-index: 2;
+            background: var(--green);
+            color: var(--black);
             border: none;
-            width: 50px;
             height: 50px;
+            width: 50px;
             border-radius: 50%;
-            cursor: pointer;
+            cursor: auto;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            font-size: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
         }
 
@@ -59,40 +74,145 @@
             transform: scale(1.1);
         }
 
-        /* Copper Theme Specific Styles */
-        .copper-theme header {
+        /* Ferrari Red Theme Specific Styles */
+        .ferrari-red-theme {
+            background: linear-gradient(135deg, #000000, #1a1a1a);
+            border-bottom: 1px solid rgba(255, 40, 0, 0.3);
+        }
+
+        .ferrari-theme .hero {
+            background: linear-gradient(135deg, #000000, #333333);
+        }
+
+        .ferrari-theme .section-title::after {
+            background: linear-gradient(to right, #ff2800, #ff333333);
+        }
+
+        .ferrari-theme .btn {
+            color: var(--accent);
+            border-color: var(--green);
+        }
+
+        .ferrari-theme .projects {
+            color: var(--green);
+            color: var(--accent);
+        }
+
+        .ferrari-theme .btn-primary {
+            background: linear-gradient(to right, #ff2800, #ff5349);
+            color: var(--white);
+            border: none;
+        }
+
+        .ferrari-theme .btn:hover {
+            background-color: rgba(255, 40, 0, 0.1);
+        }
+
+        .ferrari-theme .skill,
+        .ferrari-theme .tech {
+            background-color: rgba(255, 40, 0, 0.1);
+            color: var(--accent);
+        }
+
+        .ferrari-theme .profile-img {
+            border-color: var(--accent);
+            box-shadow: 0 5px 20px rgba(255, 40, 0, 0.2);
+        }
+
+        .ferrari-theme .education-item:hover,
+        .ferrari-theme .project-card:hover,
+        .ferrari-theme .report-card:hover {
+            box-shadow: 0 5px 15px rgba(255, 40, 0, 0.2);
+        }
+
+        .ferrari-theme .logo i,
+        .ferrari-theme .logo span,
+        .ferrari-theme .menu-toggle,
+        .ferrari-theme .footer-logo span,
+        .ferrari-theme .footer-contact p i,
+        .ferrari-theme .footer-links ul li a i,
+        .ferrari-theme .social-links a:hover,
+        .ferrari-theme .footer-social a:hover,
+        .ferrari-theme .nav ul li a:hover,
+        .ferrari-theme .footer-links ul li a:hover {
+            color: var(--accent);
+        }
+
+        .ferrari-theme .footer-links h3::after,
+        .ferrari-theme .footer-contact h3::after {
+            background-color: var(--accent);
+        }
+
+        .ferrari-theme .report-download:hover {
+            background-color: rgba(255, 40, 0, 0.1);
+        }
+
+        /* Luxury Theme Specific Styles */
+        .luxury-theme header {
             background: linear-gradient(135deg, #000000 0%, #121212 100%);
             border-bottom: 1px solid rgba(184, 115, 51, 0.3);
         }
 
-        .copper-theme .hero {
+        .luxury-theme .hero {
             background: linear-gradient(135deg, #000000 0%, #121212 100%);
         }
 
-        .copper-theme .section-title::after {
+        .luxury-theme .section-title::after {
             background: linear-gradient(to right, #B87333, #D4A017);
         }
 
-        .copper-theme .btn {
+        .luxury-theme .btn {
             border-color: var(--accent);
             color: var(--accent);
         }
 
-        .copper-theme .btn-primary {
+        .luxury-theme .btn-primary {
             background: linear-gradient(to right, #B87333, #D4A017);
             color: var(--white);
             border: none;
         }
 
-        .copper-theme .skill,
-        .copper-theme .tech {
+        .luxury-theme .btn:hover {
+            background-color: rgba(184, 115, 51, 0.1);
+        }
+
+        .luxury-theme .skill,
+        .luxury-theme .tech {
             background-color: rgba(184, 115, 51, 0.1);
             color: var(--accent);
         }
 
-        .copper-theme .profile-img {
+        .luxury-theme .profile-img {
             border-color: var(--accent);
             box-shadow: 0 5px 20px rgba(184, 115, 51, 0.2);
+        }
+
+        .luxury-theme .education-item:hover,
+        .luxury-theme .project-card:hover,
+        .luxury-theme .report-card:hover {
+            box-shadow: 0 5px 15px rgba(184, 115, 51, 0.2);
+        }
+
+        .luxury-theme .logo i,
+        .luxury-theme .logo span,
+        .luxury-theme .menu-toggle,
+        .luxury-theme .footer-logo span,
+        .luxury-theme .footer-contact p i,
+        .luxury-theme .footer-links ul li a i,
+        .luxury-theme .social-links a:hover,
+        .luxury-theme .footer-social a:hover,
+        .luxury-theme .nav ul li a:hover,
+        .luxury-theme .footer-links ul li a:hover {
+            color: var(--accent);
+        }
+
+        .luxury-theme .footer-links h3::after,
+        .luxury-theme .footer-contact h3::after {
+            background-color: var(--accent);
+        }
+
+        .luxury-theme .report-download:hover {
+            background-color: rgba(184, 115, 51, 0.1);
         }
 
         * {
@@ -270,7 +390,7 @@
 
         .section-title {
             font-size: 2rem;
-            color: var(--white);
+            color: var(--green);
             margin-bottom: 40px;
             position: relative;
             display: inline-block;
@@ -466,7 +586,7 @@
         }
 
         .report-card h3 {
-            color: var(--white);
+            color: var(--green);
             margin-bottom: 15px;
         }
 
@@ -762,8 +882,8 @@
 </head>
 <body>
     <!-- Theme Switcher Button -->
-    <button class="theme-switcher" id="themeSwitcher" title="Switch to Luxury Theme">
-        <i class="fas fa-palette"></i>
+    <button class="theme-switcher" id="themeSwitcher" title="Switch to Ferrari Red Theme">
+        <i class="fas fa-briefcase"></i> <!-- Icon for Professional Theme -->
     </button>
 
     <!-- Enhanced Header -->
@@ -866,7 +986,6 @@
                 <h3>St. Xavier's Jawalakhel, Lalitpur</h3>
                 <p class="date">Graduated 2019</p>
                 <p>SEE</p>
-
                 <p>Took part in musical performances, debates and extempore competitions. Acquired various problem solving and leadership skills.</p>
             </div>
         </div>
@@ -878,7 +997,6 @@
             <h2 class="section-title">Projects</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    
                     <div class="project-info">
                         <h3>A simple to do list</h3>
                         <p>
@@ -897,7 +1015,6 @@
                     </div>
                 </div>
                 <div class="project-card">
-                    
                     <div class="project-info">
                         <h3>MYSQL projects</h3>
                         <p>
@@ -976,7 +1093,6 @@
             <div class="social-links">
                 <a href="#"><i class="fab fa-github"></i></a>
                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                
                 <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
@@ -1005,7 +1121,7 @@
                         <li><a href="#about"><i class="fas fa-chevron-right"></i> About</a></li>
                         <li><a href="#education"><i class="fas fa-chevron-right"></i> Education</a></li>
                         <li><a href="#projects"><i class="fas fa-chevron-right"></i> Projects</a></li>
-                        <li><a href="#reports"><i class="fas fa-chevron-right"></i> Reports</a></li>
+                        <li><a href="#reports"><i class="fas fa-file-alt"></i> Reports</a></li>
                         <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
                     </ul>
                 </div>
@@ -1017,7 +1133,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Aamir Khan. All rights reserved.</p>
+                <p>© 2025 Aamir Khan. All rights reserved.</p>
                 <p>Designed & Developed with <i class="fas fa-heart" style="color: #ff4d4d;"></i> by Aamir Khan</p>
             </div>
         </div>
@@ -1031,34 +1147,53 @@
     <script>
         // Theme Switching Functionality
         const themeSwitcher = document.getElementById('themeSwitcher');
-        
-        themeSwitcher.addEventListener('click', () => {
-            document.body.classList.toggle('copper-theme');
-            
+        const themes = ['professional', 'ferrari', 'luxury'];
+        let currentThemeIndex = 0;
+
+        const themeConfig = {
+            professional: {
+                className: '',
+                icon: 'fas fa-briefcase',
+                title: 'Switch to Ferrari Red Theme'
+            },
+            ferrari: {
+                className: 'ferrari-theme',
+                icon: 'fas fa-car',
+                title: 'Switch to Luxury Theme'
+            },
+            luxury: {
+                className: 'luxury-theme',
+                icon: 'fas fa-gem',
+                title: 'Switch to Professional Theme'
+            }
+        };
+
+        function applyTheme(theme) {
+            // Remove all theme classes
+            document.body.className = '';
+            // Add the selected theme class
+            if (themeConfig[theme].className) {
+                document.body.classList.add(themeConfig[theme].className);
+            }
             // Update button icon and tooltip
             const icon = themeSwitcher.querySelector('i');
-            if (document.body.classList.contains('copper-theme')) {
-                icon.className = 'fas fa-moon';
-                themeSwitcher.title = "Switch to Professional Theme";
-            } else {
-                icon.className = 'fas fa-palette';
-                themeSwitcher.title = "Switch to Luxury Theme";
-            }
-            
+            icon.className = themeConfig[theme].icon;
+            themeSwitcher.title = themeConfig[theme].title;
             // Save preference to localStorage
-            const isCopperTheme = document.body.classList.contains('copper-theme');
-            localStorage.setItem('portfolioTheme', isCopperTheme ? 'copper' : 'navy');
+            localStorage.setItem('portfolioTheme', theme);
+        }
+
+        themeSwitcher.addEventListener('click', () => {
+            currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+            applyTheme(themes[currentThemeIndex]);
         });
 
         // Check for saved theme preference on load
         window.addEventListener('DOMContentLoaded', () => {
-            const savedTheme = localStorage.getItem('portfolioTheme');
-            if (savedTheme === 'copper') {
-                document.body.classList.add('copper-theme');
-                const icon = themeSwitcher.querySelector('i');
-                icon.className = 'fas fa-moon';
-                themeSwitcher.title = "Switch to Professional Theme";
-            }
+            const savedTheme = localStorage.getItem('portfolioTheme') || 'professional';
+            currentThemeIndex = themes.indexOf(savedTheme);
+            if (currentThemeIndex === -1) currentThemeIndex = 0;
+            applyTheme(themes[currentThemeIndex]);
         });
 
         // Mobile menu toggle
@@ -1135,7 +1270,7 @@
 
         // Add current year to footer
         document.querySelector('.footer-bottom p:first-child').innerHTML = 
-            `&copy; ${new Date().getFullYear()} Aamir Khan. All rights reserved.`;
+            `© ${new Date().getFullYear()} Aamir Khan. All rights reserved.`;
     </script>
 </body>
 </html>
